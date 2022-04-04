@@ -11,6 +11,7 @@
     user: admin 
     password: kubectl get secret argocd-initial-admin-secret -n argocd -o yaml
     > echo b2dZRjBDTE0yUG1XMUJMQ== | base64 --decode
+> kubectl apply -f application.yaml
 
 > kubectl api-resources
 > kubectl apply -f apps.yaml --namespace=argocd
