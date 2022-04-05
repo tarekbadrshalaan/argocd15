@@ -6,7 +6,7 @@
 > kubectl delete namespace argocd
 > kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 > kubectl get svc -n argocd
-> kubectl port-forward -n argocd svc/argocd-server 8080:443
+> kubectl port-forward -n argocd svc/argocd-server 8081:443
 > login: 
     user: admin 
     password: kubectl get secret argocd-initial-admin-secret -n argocd -o yaml
@@ -14,3 +14,4 @@
 > kubectl apply -f application.yaml
 > export KUBE_EDITOR='code --wait'
 > kubectl edit deployment -n myapp myapp-deploy
+> kubectl port-forward -n goapp service/goapp-service 30001:8080
