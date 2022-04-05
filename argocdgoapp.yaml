@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: goapp-argo-application
+  namespace: goapp
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/tarekbadrshalaan/argocd15.git
+    targetRevision: HEAD
+    path: goapp
+  destination: 
+    server: https://kubernetes.default.svc
+    namespace: goapp
+
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+
+    automated:
+      selfHeal: true
+      prune: true
